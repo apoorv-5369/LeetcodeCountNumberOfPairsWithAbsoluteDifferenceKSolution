@@ -15,3 +15,17 @@ class Solution {
         return count;
     }
 }
+
+// using HashMap.
+class Solution {
+
+    public int countKDifference(int[] nums, int k) {
+        int count=0;
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        for(int i:nums){
+            hm.put(i, hm.getOrDefault(i, 0)+1);
+            count+=hm.getOrDefault(i-k, 0)+hm.getOrDefault(i+k, 0);
+        }
+        return count;
+    }
+}
